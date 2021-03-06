@@ -1,0 +1,16 @@
+{
+    "name": "akai-z/custom-component-based-app",
+    "description": "A custom component-based PHP application",
+    "type": "project",
+    "license": "GPL-2.0",
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "authors": [
+        {
+            "name": "Ammar K.",
+            "homepage": "https://github.com/akai-z"
+        }
+    ]
+}
