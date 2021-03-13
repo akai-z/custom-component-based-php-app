@@ -6,7 +6,7 @@ namespace CustomComponentApp\Framework\Di\Container;
 
 interface DefinitionInterface
 {
-    const CONFIG_PATH = 'di/container';
+    const CONFIG_PATH = 'di/container/definitions';
 
     public function definitions(): array;
 }
