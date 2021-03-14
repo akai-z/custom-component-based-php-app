@@ -1,0 +1,5 @@
+CustomComponentApp\Framework\Http\Request\ServerRequestInterface: CustomComponentApp\Framework\Http\Request\ServerRequest
+CustomComponentApp\Framework\Http\Response\EmitterInterface: CustomComponentApp\Framework\Http\Response\Emitter
+CustomComponentApp\Framework\Serialize\SerializerInterface: CustomComponentApp\Framework\Serialize\Serializer\Json
+Laminas\HttpHandlerRunner\Emitter\EmitterInterface: Laminas\HttpHandlerRunner\Emitter\SapiEmitter
+Psr\Http\Message\ResponseFactoryInterface: Laminas\Diactoros\ResponseFactory
