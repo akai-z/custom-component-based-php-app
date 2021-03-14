@@ -19,6 +19,9 @@
             "CustomComponentApp\\Framework\\": "src/framework/"
         }
     },
+    "scripts": {
+        "server-start": "php -S localhost:3000 -t web/"
+    },
     "authors": [
         {
             "name": "Ammar K.",
