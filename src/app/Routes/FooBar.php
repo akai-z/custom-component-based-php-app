@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CustomComponentApp\App\Routes;
 
-use CustomComponentApp\Framework\Router\RouteInterface;
+use CustomComponentApp\Framework\Http\Router\RouteInterface;
 use CustomComponentApp\Framework\Serialize\SerializerInterface;
 use Fig\Http\Message\RequestMethodInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
