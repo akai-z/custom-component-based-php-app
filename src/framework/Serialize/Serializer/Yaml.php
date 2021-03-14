@@ -12,7 +12,7 @@ use Symfony\Component\Yaml\Yaml as YamlComponent;
 class Yaml implements SerializerInterface
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      *
      * @SuppressWarnings(PHPMD.StaticAccess)
      */
@@ -22,7 +22,7 @@ class Yaml implements SerializerInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      *
      * @SuppressWarnings(PHPMD.StaticAccess)
      */
