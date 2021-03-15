@@ -14,14 +14,14 @@ use function FastRoute\simpleDispatcher;
 
 require_once dirname(dirname(__DIR__)) . '/vendor/autoload.php';
 
-$configDiContainerBuilder = new ContainerBuilder();
+$diContainerDefinitionBuilder = new ContainerBuilder();
 
-$configDiContainerBuilder->addDefinitions([DefinitionInterface::class => autowire(Config::class)]);
-$configDiContainer = $configDiContainerBuilder->build();
+$diContainerDefinitionBuilder->addDefinitions([DefinitionInterface::class => autowire(Config::class)]);
+$diContainerDefinitionConfig = $diContainerDefinitionBuilder->build();
 
 $diContainerBuilder = new ContainerBuilder();
-$diContainerDefinitionConfig = $configDiContainer->get(DefinitionInterface::class);
-$diContainerBuilder->addDefinitions($diContainerDefinitionConfig->definitions());
+$diContainerDefinitions = $diContainerDefinitionConfig->get(DefinitionInterface::class);
+$diContainerBuilder->addDefinitions($diContainerDefinitions->definitions());
 
 $diContainer = $diContainerBuilder->build();
 
