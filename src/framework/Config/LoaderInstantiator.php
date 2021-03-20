@@ -11,6 +11,7 @@ use Psr\Container\ContainerInterface;
 class LoaderInstantiator
 {
     private ContainerInterface $diContainer;
+    private ?ConfigLoader $configLoader = null;
 
     public function __construct(ContainerInterface $diContainer)
     {
@@ -19,9 +20,15 @@ class LoaderInstantiator
 
     public function get(): ConfigLoader
     {
-        return $this->diContainer->make(
+        if ($this->configLoader !== null) {
+            return $this->configLoader;
+        }
+
+        $this->configLoader = $this->diContainer->make(
             Loader::class,
             ['serializer' => $this->diContainer->get(Yaml::class)]
         );
+
+        return $this->configLoader;
     }
 }
