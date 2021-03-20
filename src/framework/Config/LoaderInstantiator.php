@@ -8,7 +8,7 @@ use CustomComponentApp\Framework\Config\Loader as ConfigLoader;
 use CustomComponentApp\Framework\Serialize\Serializer\Yaml;
 use Psr\Container\ContainerInterface;
 
-class LoaderFactory
+class LoaderInstantiator
 {
     private ContainerInterface $diContainer;
 
