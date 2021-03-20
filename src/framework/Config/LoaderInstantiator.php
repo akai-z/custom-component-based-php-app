@@ -18,16 +18,19 @@ class LoaderInstantiator
         $this->diContainer = $diContainer;
     }
 
-    public function get(): ConfigLoader
+    public function create(): ConfigLoader
     {
-        if ($this->configLoader !== null) {
-            return $this->configLoader;
-        }
-
-        $this->configLoader = $this->diContainer->make(
+        return $this->diContainer->make(
             Loader::class,
             ['serializer' => $this->diContainer->get(Yaml::class)]
         );
+    }
+
+    public function get(): ConfigLoader
+    {
+        if ($this->configLoader === null) {
+            $this->configLoader = $this->create();
+        }
 
         return $this->configLoader;
     }
