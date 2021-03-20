@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CustomComponentApp\Framework\Di\Container\Definition;
 
 use CustomComponentApp\Framework\ClassGroup\Loader as ClassGroupLoader;
-use CustomComponentApp\Framework\Config\LoaderFactory as ConfigLoaderFactory;
+use CustomComponentApp\Framework\Config\LoaderInstantiator as ConfigLoaderInstantiator;
 use CustomComponentApp\Framework\Di\Container\Definition\Type;
 use CustomComponentApp\Framework\Di\Container\DefinitionInterface;
 
@@ -14,12 +14,14 @@ class Config implements DefinitionInterface
     const DEFENITION_TYPES_DIR = 'framework/Di/Container/Definition/Type';
 
     private ClassGroupLoader $classLoader;
-    private ConfigLoaderFactory $configLoaderFactory;
+    private ConfigLoaderInstantiator $configLoaderInstantiator;
 
-    public function __construct(ClassGroupLoader $classLoader, ConfigLoaderFactory $configLoaderFactory)
-    {
+    public function __construct(
+        ClassGroupLoader $classLoader,
+        ConfigLoaderInstantiator $configLoaderInstantiator
+    ) {
         $this->classLoader = $classLoader;
-        $this->configLoaderFactory = $configLoaderFactory;
+        $this->configLoaderInstantiator = $configLoaderInstantiator;
     }
 
     public function definitions(): array
@@ -28,7 +30,7 @@ class Config implements DefinitionInterface
         $definitionsLoader = $this->classLoader->loadClass(
             self::DEFENITION_TYPES_DIR,
             Type::class,
-            ['config' => $this->configLoaderFactory->create()]
+            ['config' => $this->configLoaderInstantiator->get()]
         );
 
         foreach ($definitionsLoader as $definition) {
