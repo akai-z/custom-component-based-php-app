@@ -17,7 +17,7 @@ class LoaderInstantiator
         $this->diContainer = $diContainer;
     }
 
-    public function create(): ConfigLoader
+    public function get(): ConfigLoader
     {
         return $this->diContainer->make(
             Loader::class,

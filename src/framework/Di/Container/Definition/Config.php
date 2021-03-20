@@ -30,7 +30,7 @@ class Config implements DefinitionInterface
         $definitionsLoader = $this->classLoader->loadClass(
             self::DEFENITION_TYPES_DIR,
             Type::class,
-            ['config' => $this->configLoaderInstantiator->create()]
+            ['config' => $this->configLoaderInstantiator->get()]
         );
 
         foreach ($definitionsLoader as $definition) {
