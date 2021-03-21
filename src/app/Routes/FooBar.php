@@ -16,6 +16,7 @@ class FooBar implements RouteInterface
     const HTTP_METHODS = [RequestMethodInterface::METHOD_GET];
     const PATH = 'foobar';
 
+    private SerializerInterface $serializer;
     private ResponseFactoryInterface $responseFactory;
 
     public function __construct(SerializerInterface $serializer, ResponseFactoryInterface $responseFactory)
