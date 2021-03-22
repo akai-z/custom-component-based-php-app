@@ -12,6 +12,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class Processor
 {
+    private ServerRequestInterface $serverRequest;
     private ResponseFactoryInterface $responseFactory;
 
     public function __construct(
