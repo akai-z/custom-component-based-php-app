@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use CustomComponentApp\Framework\App\ModeInterface;
 use CustomComponentApp\Framework\App\Mode\Web as WebMode;
+use CustomComponentApp\Framework\App\ModeInterface;
 use CustomComponentApp\Framework\Di\Container\Definition\Config as DefinitionConfig;
 use CustomComponentApp\Framework\Di\Container\DefinitionInterface;
 use DI\ContainerBuilder;
