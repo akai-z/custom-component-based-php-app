@@ -13,17 +13,21 @@ use function Di\autowire;
 require_once dirname(dirname(__DIR__)) . '/vendor/autoload.php';
 
 $diContainerDefinitionBuilder = new ContainerBuilder();
-$diContainerDefinitionBuilder->addDefinitions(
-    [
-        DefinitionInterface::class => autowire(DefinitionConfig::class),
-        ModeInterface::class => autowire(WebMode::class)
-    ]
-);
+$appModeDiContainerDefinition = [ModeInterface::class => autowire(WebMode::class)];
+
+$diContainerDefinitionBuilder
+    ->addDefinitions([DefinitionInterface::class => autowire(DefinitionConfig::class)])
+    ->addDefinitions($appModeDiContainerDefinition);
 
 $diContainerDefinitionConfig = $diContainerDefinitionBuilder->build();
 $diContainerDefinitions = $diContainerDefinitionConfig->get(DefinitionInterface::class);
 
-return $diContainerDefinitionConfig->make(
-    ModeInterface::class,
-    ['diContainerDefinitions' => $diContainerDefinitions->definitions()]
-);
+$appDiContainerBuilder = new ContainerBuilder();
+
+$appDiContainerBuilder
+    ->addDefinitions($diContainerDefinitions->definitions())
+    ->addDefinitions($appModeDiContainerDefinition);
+
+$appDiContainer = $appDiContainerBuilder->build();
+
+return $appDiContainer->make(ModeInterface::class);
