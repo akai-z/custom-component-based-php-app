@@ -1,0 +1,7 @@
+#!/usr/bin/env php
+
+<?php
+
+$app = require_once dirname(__DIR__) . '/src/bootstrap/cli.php';
+
+$app->run();
