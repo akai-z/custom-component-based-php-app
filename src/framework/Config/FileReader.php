@@ -6,7 +6,7 @@ namespace CustomComponentApp\Framework\Config;
 
 class FileReader
 {
-    const CONFIG_PATH = 'config';
+    const CONFIG_PATH = 'etc';
     const CONFIG_FILE_EXTENSION = 'yaml';
 
     public function read(string $file): string
