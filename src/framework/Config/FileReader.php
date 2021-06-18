@@ -16,8 +16,7 @@ class FileReader
 
     private function filePath(string $file): string
     {
-        return dirname(dirname(__DIR__))
-            . '/' . self::CONFIG_PATH . '/'
-            . $file . '.' . self::CONFIG_FILE_EXTENSION;
+        return dirname(__DIR__) . '/' . self::CONFIG_PATH
+            . '/' . $file . '.' . self::CONFIG_FILE_EXTENSION;
     }
 }
